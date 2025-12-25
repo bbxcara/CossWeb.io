@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tabber</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: #eaeaea;
+    margin: 0;
+    padding: 16px;
+  }
+
+  .tabber {
+    max-width: 900px;
+    margin: auto;
+  }
+
+  .tab-buttons {
+    display: flex;
+    border-bottom: 2px solid #333;
+    margin-bottom: 12px;
+  }
+
+  .tab-buttons button {
+    background: #1b1b1b;
+    color: #ccc;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    border-right: 1px solid #333;
+  }
+
+  .tab-buttons button.active {
+    background: #262626;
+    color: #fff;
+    font-weight: bold;
+    border-bottom: 2px solid #4aa3ff;
+  }
+
+  .tab-content {
+    display: none;
+    padding: 12px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<div class="tabber">
+  <div class="tab-buttons">
+    <button class="active" onclick="openTab(0)">Overview</button>
+    <button onclick="openTab(1)">Strategy</button>
+    <button onclick="openTab(2)">Builds</button>
+    <button onclick="openTab(3)">Tips</button>
+  </div>
+
+  <div class="tab-content active">
+    <h2>Overview</h2>
+    <p>High-level description of the class, role, and strengths.</p>
+  </div>
+
+  <div class="tab-content">
+    <h2>Strategy</h2>
+    <p>Combat flow, decision-making, and priorities.</p>
+  </div>
+
+  <div class="tab-content">
+    <h2>Builds</h2>
+    <p>Talent paths, stat focus, and variations.</p>
+  </div>
+
+  <div class="tab-content">
+    <h2>Tips</h2>
+    <p>Advanced tricks, mistakes to avoid, and optimizations.</p>
+  </div>
+</div>
+
+<script>
+  function openTab(index) {
+    const buttons = document.querySelectorAll('.tab-buttons button');
+    const contents = document.querySelectorAll('.tab-content');
+
+    buttons.forEach(btn => btn.classList.remove('active'));
+    contents.forEach(tab => tab.classList.remove('active'));
+
+    buttons[index].classList.add('active');
+    contents[index].classList.add('active');
+  }
+</script>
+
+</body>
+</html>
